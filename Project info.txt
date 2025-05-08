@@ -1,6 +1,6 @@
 Pokeking Translator
 Author: WileytheBang
-
+Link: https://github.com/WileytheBANG/pokeking-translator
 🎯 Project Overview
 Pokeking Translator is a lightweight tool designed to improve raw translations from Google Translate. Its purpose is twofold:
 
