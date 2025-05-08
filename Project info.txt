@@ -1,0 +1,29 @@
+Pokeking Translator
+Author: WileytheBang
+
+🎯 Project Overview
+Pokeking Translator is a lightweight tool designed to improve raw translations from Google Translate. Its purpose is twofold:
+
+Refine rough translations to make them clearer and closer to the intended meaning.
+
+Extract and summarize the core solution provided on the original website, ensuring users get the essential idea quickly.
+
+This is especially useful for parsing complex or technical content from foreign sources.
+
+⚙️ Development Status
+This project is under active development. If you encounter bugs, issues, or strange behavior, please report them to this user (me).
+
+🔐 Privacy Policy
+No data is collected or sent anywhere.
+
+You can review the complete source code to verify this.
+
+Some Chinese text may remain in the output — this is non-essential and generally safe to ignore unless something on the site behaves unexpectedly.
+
+🪪 License & Usage
+Free to use and distribute, for personal or professional purposes.
+
+Credit is required — please acknowledge Your Name Here if you reuse or share this project.
+
+🤝 Contributions
+Feedback and contributions are welcome! Let's make translations smoother together.

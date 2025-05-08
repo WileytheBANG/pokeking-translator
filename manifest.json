@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Pokeking translator",
+  "version": "1.2",
+  "description": "Replaces Chinese keywords with mapped values.",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_title": "Toggle Keyword Replacement"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["dictionary.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
