@@ -23,8 +23,10 @@ Go back to the extensions page (chrome://extensions/ or edge://extensions/).
 
 Click "Reload" under the Pokeking Translator extension.
 
-💡 Optimal Usage Tips
+💡 Usage Tips
 Pin the extension to your browser toolbar for quick access.
 
 After the page is fully loaded, click the Pokeking Translator icon to activate the translation.
+
+Some Chinese text may remain in the output — this is non-essential and generally safe to ignore unless you stray from the intended solve.
 
