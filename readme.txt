@@ -1,4 +1,11 @@
 Installation & Usage Guide
+✅ Choose dictionary and team
+Go to the strat_list/ folder inside the project directory.
+
+Choose the appropriate dictionary.json from one of the subfolders based on your needs.
+
+Copy and replace it over the existing dictionary.json in the root project folder.
+
 ✅ Install the Extension (Edge/Chrome)
 Download or clone this repository to your computer.
 
@@ -22,11 +29,4 @@ Replace the dict.json file inside the extension folder with the new version.
 Go back to the extensions page (chrome://extensions/ or edge://extensions/).
 
 Click "Reload" under the Pokeking Translator extension.
-
-💡 Usage Tips
-Pin the extension to your browser toolbar for quick access.
-
-After the page is fully loaded, click the Pokeking Translator icon to activate the translation.
-
-Some Chinese text may remain in the output — this is non-essential and generally safe to ignore unless you stray from the intended solve.
 
