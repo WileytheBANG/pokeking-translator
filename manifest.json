@@ -4,26 +4,27 @@
   "version": "2.0",
   "description": "read solve content from the pokeking site only",
   "permissions": ["scripting", "tabs"],
-  "host_permissions": ["*://*.pokeking.icu/*"],
+  "host_permissions": ["http://pokeking.icu/*"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_icon": {
-      "16": "icons/off.png",
-      "32": "icons/off.png",
-      "48": "icons/off.png",
-      "128": "icons/off.png"
+      "16": "icons/icon.png",
+      "19": "icons/icon.png",
+      "32": "icons/icon.png",
+      "38": "icons/icon.png",
+      "48": "icons/icon.png"
     },
     "default_title": "Toggle translation"
   },
-  "content_scripts": [
-    {
-      "matches": ["*://*.pokeking.icu/*"],
-      "js": ["content-script.js"],
-      "run_at": "document_idle"
-    }
-  ],
+   "content_scripts": [
+  {
+    "matches": ["*://*.pokeking.icu/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }
+],
   "web_accessible_resources": [
     {
       "resources": ["dictionary.json"],
