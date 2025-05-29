@@ -21,7 +21,7 @@ Click "Load unpacked" and select the folder you just downloaded.
 The extension should now be active in your browser.
 
 ### FireFox: (credit to @compscimmo)
-0. download the .xpi here or [the alternative link](https://buzzheavier.com/nvmyw7drof1k)
+0. download the .xpi here or [the alternative link](https://buzzheavier.com/nvohzosjztbp)
 
 1. open in xpi file in firefox
 
