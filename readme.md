@@ -35,7 +35,7 @@ The extension should now be active in your browser.
 4. go back to the main settings screen, find option install add-on from file and select the xpi file.
 
 # 🛠 Reporting Issues & Updating the Dictionary
-To report bugs or issues, contact me on Discord: Nhien An, or my collaborator wilsun.
+To report bugs or issues, contact me on Discord: Nhien An, or my collaborator jassimp.
 
 For dictionary updates, please submit reports via the provided spreadsheet. [Report](https://docs.google.com/spreadsheets/d/1T86jf1g0Db3MW69F6Fwix3CAueuz6XAC6VRKVjo-6iA/edit?usp=sharing)
 
