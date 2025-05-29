@@ -10,9 +10,9 @@ Download the latest version of the extension.
 ## 💻 For PC (Chrome/Edge)
 Open your browser and navigate to:
 
-Chrome: chrome://extensions/
+### Chrome: chrome://extensions/
 
-Edge: edge://extensions/
+### Edge: edge://extensions/
 
 Enable Developer Mode using the toggle in the top-right corner.
 
@@ -20,8 +20,19 @@ Click "Load unpacked" and select the folder you just downloaded.
 
 The extension should now be active in your browser.
 
-## 📱 For Mobile
-Coming soon. My pal will update this.
+### FireFox: (credit to @compscimmo)
+0. download the .xpi here or [the alternative link](https://buzzheavier.com/nvmyw7drof1k)
+
+1. open in xpi file in firefox
+
+## 📱 For Mobile (credit to @compscimmo)
+1. download the pokekingtranslatorwwjt-4.3.6.xpi file
+
+2. download firefox nightly or beta
+
+3. enabling the debug menu: go to settings > about firefox (or about firefox nightly/beta) and tap the firefox logo five times. this will enable a "debug menu."
+
+4. go back to the main settings screen, find option install add-on from file and select the xpi file.
 
 # 🛠 Reporting Issues & Updating the Dictionary
 To report bugs or issues, contact me on Discord: Nhien An, or my collaborator wilsun.
