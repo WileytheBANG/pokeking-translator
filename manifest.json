@@ -1,34 +1,39 @@
 {
   "manifest_version": 3,
-  "name": "Pokeking Translation",
-  "version": "2.0",
-  "description": "read solve content from the pokeking site only",
-  "permissions": ["scripting", "tabs"],
-  "host_permissions": ["http://pokeking.icu/*"],
-  "background": {
-    "service_worker": "background.js"
+  "name": "Pokeking Translator",
+  "version": "4.3.2",
+  "description": "Auto-replaces keywords on Pokeking site. Can be activated on other sites manually.",
+  "icons": {
+    "16": "icons/slax16.png",
+    "48": "icons/slax48.png",
+    "128": "icons/slax128.png"
   },
-  "action": {
-    "default_icon": {
-      "16": "icons/icon.png",
-      "19": "icons/icon.png",
-      "32": "icons/icon.png",
-      "38": "icons/icon.png",
-      "48": "icons/icon.png"
-    },
-    "default_title": "Toggle translation"
-  },
-   "content_scripts": [
-  {
-    "matches": ["*://*.pokeking.icu/*"],
-    "js": ["content.js"],
-    "run_at": "document_idle"
-  }
-],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.pokeking.icu/*",
+    "<all_urls>" 
+
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.pokeking.icu/*"], 
+      "js": ["browser-polyfill.min.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ],
   "web_accessible_resources": [
     {
-      "resources": ["dictionary.json"],
-      "matches": ["*://*.pokeking.icu/*"]
+      "resources": ["dictionary.json", "injected_script.js"],
+      "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+    "id": "pokeking-translator-jassimp-ww@github.com",
+    "strict_min_version": "120.0"
+  }
+  }
 }
