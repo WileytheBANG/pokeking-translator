@@ -43,7 +43,9 @@ Apple have a reputation of good security, hence they would not allow any brower 
 ## 🔧 Initial Setup
 Go to the "Personal Center" (top-left corner of the page).
 
-Log in or sign up for your account.
+Sign up for your account. **NOTE**: one unique email per account.
+
+Once you click register, check you email and check the confirmation link. The log in using the username you have typed in.
 
 In the CODE field, enter the code for the team you want to use. Several team codes are documented in the strat_list/ directory of this repository.
 
