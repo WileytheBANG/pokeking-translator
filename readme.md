@@ -72,11 +72,16 @@ Having the page load in Chinese will allow the built-in translation module to tr
 
 ### 2. Translation error report:
 
-As we are still developing as we play, there are still some placeholders that is crucial to the play. We may not be capable of detecting such things, hence we made a button for you to report it to us. 
+You see a crucial part of the translation is missing, that you do not know what to do next? Here is the solution for you, introduce the "error report" button, that raise the flag for us dev to update it, so you will not encounter that situation again.
 
-- First, select the untranslated part, then copy the text. (Ctrl+C on pc, or hold for some seconds on mobile) 
-- Click the report error button. Then paste the content in.
-- click submit.
+Here is the documentation on how to report: [documentation](https://docs.google.com/document/d/1jtOwm01Or6DP4rrGPcMHK39IHH0Lai5D12Cw_7nNYnk/edit?tab=t.0#heading=h.5y9ub8iq31a)
+
+Summary: 
+- On PC (Desktop/Laptop): Right-click the incorrect text, then select "Pokeking Translator: Report Error/Mistranslation" from the context menu.
+- On PC or Mobile: Click or tap on the incorrect translation, then press the "Report Error" button.
+- Submitting the Report: A pop-up will appear showing the original Chinese text. If incorrect, enter the correct translation.
+- For whole rows: Click "Show original" (if available), copy the original text, and paste it into the correction field.
+- Click "Submit Report" to send the feedback or "Cancel" to discard the report.
 
 **Each help from you will make it easier to yourself in the future.**  <br/>
 It you have read till this line of the readme, congrats!!! You are now ready to use the extension. 
