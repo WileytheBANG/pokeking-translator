@@ -474,14 +474,13 @@ async function initializePokekingTranslator() {
     (document.head || document.documentElement).prepend(s);
 
 
-    // --- Listen for Custom Events from the Injected Script ---
-    window.addEventListener('pokekingReportRequest', (event) => {
-        const { originalText, currentTranslatedText, pageUrl } = event.detail;
-        console.log("Pokeking Translator: Received report request via custom event:", originalText, currentTranslatedText, pageUrl);
-        // Now show your report form with the collected data
-        showErrorReportForm(originalText, currentTranslatedText);
+    // ** THIS IS THE NEWLY ADDED LISTENER FOR ALERT INTERCEPTION **
+    window.addEventListener('pokekingAlertIntercepted', (event) => {
+        const message = event.detail.message;
+        console.log("Pokeking Translator: Received alert from injected script:", message);
+        showCustomAlert(message); // Call your custom alert function
     });
-
+    
     // This event is dispatched by the function injected from the background script
     window.addEventListener('pokekingReportRequest', (event) => {
         const { originalText, currentTranslatedText, pageUrl } = event.detail;
