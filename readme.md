@@ -74,4 +74,9 @@ Having the page load in Chinese will allow the built-in translation module to tr
 
 As we are still developing as we play, there are still some placeholders that is crucial to the play. We may not be capable of detecting such things, hence we made a button for you to report it to us. 
 
+- First, select the untranslated part, then copy the text. (Ctrl+C on pc, or hold for some seconds on mobile) 
+- Click the report error button. Then paste the content in.
+- click submit.
 
+**Each help from you will make it easier to yourself in the future.**  <br/>
+It you have read till this line of the readme, congrats!!! You are now ready to use the extension. 
