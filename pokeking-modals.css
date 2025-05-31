@@ -1,0 +1,128 @@
+#pokeking-custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default, shown by JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+}
+.pokeking-custom-alert-content {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 280px;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+.pokeking-custom-alert-message {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+.pokeking-custom-alert-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+.pokeking-custom-alert-button:hover {
+    background-color: #45a049;
+}
+
+/* Error Report Form Styles */
+#pokeking-error-report-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* Hidden by default, shown by JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 10001; /* Higher than custom alert */
+    font-family: Arial, sans-serif;
+    color: #eee;
+}
+#pokeking-error-report-form .pokeking-error-form-content {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+    width: 90%;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+#pokeking-error-report-form h3 {
+    color: #4CAF50;
+    margin-top: 0;
+    text-align: center;
+}
+#pokeking-error-report-form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #bbb;
+}
+#pokeking-error-report-form input[type="text"],
+#pokeking-error-report-form textarea {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1em;
+}
+#pokeking-error-report-form input[type="text"][readonly] {
+    background-color: #444;
+    color: #aaa;
+    cursor: default;
+}
+#pokeking-error-report-form p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+#pokeking-error-report-form strong {
+    color: #ccc;
+}
+#pokeking-error-report-form .pokeking-error-form-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+#pokeking-error-report-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+    min-width: 100px;
+}
+#pokeking-error-report-form button:hover {
+    background-color: #45a049;
+}
+#pokeking-error-report-form button#pokeking-cancel-report-btn {
+    background-color: #f44336;
+}
+#pokeking-error-report-form button#pokeking-cancel-report-btn:hover {
+    background-color: #da190b;
+}

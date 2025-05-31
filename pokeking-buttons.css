@@ -1,0 +1,116 @@
+/* Aggressive resets for html/body to ensure fixed positioning works correctly */
+html, body {
+    transform: none !important;
+    perspective: none !important;
+    filter: none !important;
+}
+
+/* Target the specific fixed button group on the right. */
+div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] {
+    position: fixed !important;
+    bottom: 15px !important;
+    left: calc(100vw - 160px) !important;
+    right: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: 155px !important;
+    z-index: 99999 !important;
+    overflow: visible !important;
+}
+
+div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] .btn-group .btn {
+    padding: 8px 12px !important;
+    font-size: 15px !important;
+    height: auto !important;
+    min-width: unset !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] .btn-group .btn .pokeking-translated {
+    font-size: 15px !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    line-height: inherit !important;
+}
+
+div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] .btn-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 5px !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+}
+
+/* Extension Buttons (Left Side) */
+#pokeking-buttons-container {
+    position: fixed !important;
+    top: 45px !important;
+    right: 5px !important;
+    left: auto !important;
+    width: fit-content !important;
+    height: fit-content !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 5px !important;
+}
+#pokeking-buttons-container button {
+    bottom: 0px !important;
+    padding: 4px 6px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    opacity: 0.7 !important;
+    text-align: center !important;
+    min-width: 45px !important;
+}
+.pokeking-toggle-button {
+    background-color: rgb(37, 37, 37) !important;
+    color: white !important;
+    transition: background 0.2s ease, transform 0.1s ease !important;
+}
+.pokeking-toggle-button:hover { background: rgb(80, 80, 80) !important; }
+.pokeking-toggle-button:active { transform: translateY(1px) !important; }
+
+.pokeking-error-button {
+    background-color: #dc3545 !important;
+    opacity: 0.7 !important;
+    color: white !important;
+    transition: background 0.2s ease, transform 0.1s ease !important;
+}
+.pokeking-error-button:hover { background: #c82333 !important; }
+.pokeking-error-button:active { transform: translateY(1px) !important; }
+
+/* Translation Text Highlight */
+.pokeking-translated {
+    padding: 1px 0;
+    display: inline-block;
+}
+
+/* --- Mobile-specific adjustments --- */
+@media (max-width: 768px) {
+    div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] {
+        bottom: 15px !important;
+        left: calc(100vw - 125px) !important;
+        max-width: 120px !important;
+    }
+    div[style*="position: fixed"][style*="bottom: 10px"][style*="right: 20px"] .btn-group .btn {
+        padding: 5px 6px !important;
+        font-size: 0.7em !important;
+    }
+    #pokeking-buttons-container {
+        bottom: 5px !important;
+        left: 250px !important;
+    }
+    #pokeking-buttons-container button {
+        font-size: 10px !important;
+        padding: 3px 5px !important;
+        min-width: 45px !important;
+    }
+}
