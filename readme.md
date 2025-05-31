@@ -22,18 +22,18 @@ Click "Load unpacked" and select the folder you just downloaded.
 The extension should now be active in your browser.
 
 ## 💻 For Firefox: (credit to @compscimmo)
-1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/jz0dq09lht0c), or [this](https://buzzheavier.com/3wwzfuujqa42) and [this](https://buzzheavier.com/wv21mgm5dxyj). These are backup links.
-
-2. Open the XPI file in Firefox.
+1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/ksyssv5gyefi), or [this](https://buzzheavier.com/noqmtnypvlgf) and [this](https://buzzheavier.com/noqmtnypvlgf). These are backup links.
+2. 
+3. Open the XPI file in Firefox.
 
 ## 📱 For Android devices (tablet, mobile) (credit to @compscimmo)
-1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/jz0dq09lht0c), or [this](https://buzzheavier.com/3wwzfuujqa42) and [this](https://buzzheavier.com/wv21mgm5dxyj). These are backup links.
+1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/ksyssv5gyefi), or [this](https://buzzheavier.com/noqmtnypvlgf) and [this](https://buzzheavier.com/noqmtnypvlgf). These are backup links.
+2. 
+3. Download firefox nightly or beta
 
-2. Download firefox nightly or beta
+4. Enabling the debug menu: go to settings > about firefox (or about firefox nightly/beta) and tap the firefox logo five times. this will enable a "debug menu."
 
-3. Enabling the debug menu: go to settings > about firefox (or about firefox nightly/beta) and tap the firefox logo five times. this will enable a "debug menu."
-
-4. Go back to the main settings screen, find option install add-on from file and select the xpi file.
+5. Go back to the main settings screen, find option install add-on from file and select the xpi file.
 
 ## 📱 For IOS devices
 
