@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pokeking Translator",
-  "version": "5.2.1",
+  "version": "5.2.3",
   "description": "Auto-replaces keywords on Pokeking site. Can be activated on other sites manually.", 
   "icons": {
     "16": "icons/slax16.png",
