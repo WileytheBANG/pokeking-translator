@@ -25,6 +25,7 @@ async function initializePokekingTranslator() {
     let isShowingOriginal = false; // Track whether we're showing original or translated text
     let DICT = {}; // Initialize DICT here
     let keywordRegex = null; // Initialize regex here
+    let kingCODE = null; // global variable in content script
 
     // --- Get the Dictionary from the Background Script (with retry logic) ---
     async function getDictionaryWithRetry(retries = 5, delay = 500) {
@@ -45,7 +46,37 @@ async function initializePokekingTranslator() {
         }
         return {}; // Should not be reached if retries are exhausted, but as a fallback
     }
+    window.addEventListener('load', () => {  // Check sessionStorage for kingCODE
+        kingCODE = sessionStorage.getItem('kingCODE');
+        
+        if (!kingCODE) {    // Not found, fetch from background
+            browser.runtime.sendMessage({ action: "getKingCode" })
+                .then(response => {
+                    if (response.success && response.kingCODE) {
+                        kingCODE = response.kingCODE;
+                        // Save to sessionStorage
+                        sessionStorage.setItem('kingCODE', kingCODE);
+                        console.log("Received and saved kingCODE in sessionStorage:", kingCODE);
+                        onKingCodeReady(kingCODE);
+                    } else {
+                        console.error("Failed to get kingCODE:", response.error);
+                    }})
+                .catch(err => {
+                    console.error("Error sending message:", err);
+                });
+        } else {
+            console.log("Loaded kingCODE from sessionStorage:", kingCODE);
+            onKingCodeReady(kingCODE);
+        }
+    });
     
+    // Optional: callback function to use kingCODE once it's ready
+    function onKingCodeReady(code) {
+        // You can put here any code that depends on kingCODE
+        // For example:
+        console.log("kingCODE is ready to use globally:", code);
+    }
+
     DICT = await getDictionaryWithRetry();
 
     if (Object.keys(DICT).length === 0) {
@@ -269,8 +300,7 @@ async function initializePokekingTranslator() {
                 <label for="pokeking-team-used">Your Team (optional):</label>
                 <input type="text" id="pokeking-team-used" placeholder="e.g., wild taste">
 
-                <label for="pokeking-pokeking-code">Pokeking Code (optional):</label>Add commentMore actions
-                <input type="text" id="pokeking-pokeking-code" placeholder="e.g., 8E8EBC6ECBC9DEE4FE9BFAEC97A05375">
+                <input type="hidden" id="pokeking-pokeking-code">
 
                 <input type="hidden" id="pokeking-pokemon-region">
                 <input type="hidden" id="pokeking-elite-four-member">
@@ -354,7 +384,7 @@ async function initializePokekingTranslator() {
 
         document.getElementById('pokeking-contributor-ign').value = '';
         document.getElementById('pokeking-team-used').value = '';
-        document.getElementById('pokeking-pokeking-code').value = '';
+        document.getElementById('pokeking-pokeking-code').value = kingCODE;
         document.getElementById('pokeking-user-suggested-correction').value = '';
         document.getElementById('pokeking-user-provided-chinese-text').value = '';
 

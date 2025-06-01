@@ -94,3 +94,21 @@ browser.contextMenus.onClicked.addListener((info, tab) => { // Using browser.con
         });
     }
 });
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "getKingCode") {
+    fetch("http://backend.pokeking.icu/api/user/load", {
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(data => {
+        const kingCODE = data?.result?.otherCode || null;
+        sendResponse({ success: true, kingCODE });
+      })
+      .catch(error => {
+        sendResponse({ success: false, error: error.message });
+      });
+
+    // Needed because we're using async response
+    return true;
+  }
+});
