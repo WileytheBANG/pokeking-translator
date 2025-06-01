@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pokeking Translator",
-  "version": "5.2.5",
+  "version": "5.2.4",
   "description": "Auto-replaces keywords on Pokeking site. Can be activated on other sites manually.", 
   "icons": {
     "16": "icons/slax16.png",
@@ -19,7 +19,8 @@
     "*://*.pokeking.icu/*",
     "https://compscimmo.github.io/",
     "https://script.google.com/*",
-    "http://backend.pokeking.icu/*" 
+    "http://backend.pokeking.icu/*",
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
