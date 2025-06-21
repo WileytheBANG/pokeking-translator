@@ -15,7 +15,8 @@ Go to the Releases section of this GitHub page.
 Download the latest version of the extension.
 ![image](https://github.com/user-attachments/assets/b788c0c6-918b-4d8a-a752-0f06f3b4ca2a)
 
-Enable Developer Mode using the toggle in the top-right corner.
+Enable Developer Mode using the toggle in the corner. (left side if you are using Edge)
+![image](https://github.com/user-attachments/assets/b8c33246-64ae-4962-bff5-b7f7ddf47440)
 
 Click "Load unpacked" and select the folder you just downloaded.
 
@@ -23,19 +24,11 @@ The extension should now be active in your browser.
 
 
 
-## 💻 For Firefox: (credit to @compscimmo)
-1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/bbfpzbdhev3j), or [this](https://buzzheavier.com/5vq50x65gr6a) and [this](https://buzzheavier.com/thy4gm7f1y2m). These are backup links.
+## 💻 For Firefox and mobile devices (credit to @compscimmo)
 
-2. Open the XPI file in Firefox.
+Go to this link https://addons.mozilla.org/en-US/firefox/addon/pokeking-translator/
 
-## 📱 For Android devices (tablet, mobile) (credit to @compscimmo)
-1. Instead of download the whole release, you download the sole .xpi here in the repo, or [this link](https://buzzheavier.com/bbfpzbdhev3j), or [this](https://buzzheavier.com/5vq50x65gr6a) and [this](https://buzzheavier.com/thy4gm7f1y2m). These are backup links.
- 
-2. Download firefox nightly or beta
-
-4. Enabling the debug menu: go to settings > about firefox (or about firefox nightly/beta) and tap the firefox logo five times. this will enable a "debug menu."
-
-5. Go back to the main settings screen, find option install add-on from file and select the xpi file.
+The extension is now availble officially in the add-on store of Firefox. It should update automatically to our latest release.
 
 ## 📱 For IOS devices
 
@@ -45,11 +38,11 @@ Apple have a reputation of good security, hence they would not allow any brower 
 ## 🔧 Initial Setup
 Go to the "Personal Center" (top-left corner of the page).
 
-Sign up for your account. **NOTE**: one unique email per account.
+Sign up for your account. **NOTE**: one unique email per account. Then check your email and confirm. Now your account should be active for use.
 
 Once you click register, check you email and check the confirmation link. The log in using the username you have typed in.
 
-In the CODE field, enter the code for the team you want to use. Several team codes are documented in the strat_list/ directory of this repository.
+In the CODE field, enter the code for the team you want to use. We have some codes of PUBLIC team in the strat_list/ directory of this repository so you can try it out.
 
 Click Save to apply.
 
