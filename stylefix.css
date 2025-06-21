@@ -1,0 +1,48 @@
+.pet-dev { /* Make sure you use the website's actual class name! */
+    /* Resizing Logic */
+    height: 134.5px;
+    min-height: 100px;
+
+    /* The Crucial Fix for Click Interception */
+    overflow: hidden;
+
+    /* Spacing */
+    padding: 0;
+    /*
+    box-sizing: border-box;*/
+}
+
+/*
+.pokeking-translated {
+    padding-top: 0px;
+    padding-left: 0; 
+    padding-right: 0;
+    padding-bottom: 0;
+}
+*/
+
+
+/* Hide the "important info" message */
+.pet-dev > div > div[style*="top: -15px; right: 0px;"] {
+    display: none !important;
+}
+
+.pet-dev h3 .pokeking-translated {
+    color: #32CD32 !important; /* Vibrant Lime Green text */
+    font-size: 0.8em !important; /* Adjust font size for longer names */
+
+    /* Strong black outline for readability on varied backgrounds */
+    text-shadow:
+        -1px -1px 0 #000,  /* Top-left */
+        1px -1px 0 #000,   /* Top-right */
+        -1px 1px 0 #000,   /* Bottom-left */
+        1px 1px 0 #000,    /* Bottom-right */
+        -2px 0 0 #000,     /* Left */
+        2px 0 0 #000,      /* Right */
+        0 -2px 0 #000,     /* Top */
+        0 2px 0 #000;      /* Bottom */
+
+    /* Ensure the name is on top of other elements in the stacking order */
+    position: relative;
+    z-index: 10;
+}
