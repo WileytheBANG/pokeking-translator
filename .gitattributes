@@ -1,4 +1,0 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-C:/Users/wilso/Documents/code/pokeking-translator/pokekingtranslatorwwjt-4.3.1.xpi filter=lfs diff=lfs merge=lfs -text
-*.xpi filter=lfs diff=lfs merge=lfs -text
