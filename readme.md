@@ -30,9 +30,10 @@ Go to this link https://addons.mozilla.org/en-US/firefox/addon/pokeking-translat
 
 The extension is now availble officially in the add-on store of Firefox. It should update automatically to our latest release.
 
-## 📱 For IOS devices
-
-Apple have a reputation of good security, hence they would not allow any brower or extension from unofficial store, indie developer. As a result, no support available for these devices.
+## 📱 For IOS devices with Safari Browser (credit to BadmashiNaKare on discord)
+First, install this free Addons from the Apple store.
+![image](image.png)
+Then, download a single script from this file "Pokeking (ios patch)" and add it into the Scripts Addons. Then you can enjoy the translation on Apple devices.
 
 # Pokeking Page Navigator
 ## 🔧 Initial Setup
