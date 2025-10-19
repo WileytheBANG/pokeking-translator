@@ -1,10 +1,11 @@
-// ==UserScript== 
-// @name         
-// @version      0.0
-// @description  
+// ==UserScript==
+// @name         Pokeking Translator (Safari Version)
+// @version      1.2
+// @description  Dictionary-based translator with draggable buttons and injected CSS for improved visuals
+// @author       cuteasduckk
 // @match        *
 // @grant        none
-// ==/UserScript== 
+// ==/UserScript==
 
 (async function() {
     console.log("Pokeking Translator: Content script running (Safari version)");
@@ -25,6 +26,40 @@
     let DICT = {};
     let keywordRegex = null;
 
+    // --- Inject Styles ---
+    function injectStyle() {
+        const style = document.createElement("style");
+        style.textContent = `
+        .pet-dev {
+            height: 134.5px;
+            min-height: 100px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .pet-dev > div > div[style*="top: -15px; right: 0px;"] {
+            display: none !important;
+        }
+
+        .pet-dev h3 .pokeking-translated {
+            color: #32CD32 !important;
+            font-size: 0.8em !important;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000,
+                -2px 0 0 #000,
+                2px 0 0 #000,
+                0 -2px 0 #000,
+                0 2px 0 #000;
+            position: relative;
+            z-index: 10;
+        }
+        `;
+        document.head.appendChild(style);
+    }
+
     // --- Fetch Dictionary ---
     async function fetchDictionary() {
         try {
@@ -33,7 +68,10 @@
             DICT = await res.json();
             if (Object.keys(DICT).length) {
                 keywordRegex = new RegExp(
-                    `(${Object.keys(DICT).sort((a,b)=>b.length-a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join("|")})`,
+                    `(${Object.keys(DICT)
+                        .sort((a, b) => b.length - a.length)
+                        .map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+                        .join("|")})`,
                     "g"
                 );
                 console.log("Pokeking Translator: Dictionary loaded.");
@@ -52,11 +90,11 @@
                 const parent = node.parentElement;
                 if (!parent) return NodeFilter.FILTER_REJECT;
                 if (parent.closest(`#${CUSTOM_ALERT_ID}, #${POKEKING_BUTTONS_CONTAINER_ID}`) || parent.classList.contains(POKEKING_WRAPPER_CLASS)) return NodeFilter.FILTER_REJECT;
-                if (['SCRIPT','STYLE'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                if (['SCRIPT', 'STYLE'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
                 return NodeFilter.FILTER_ACCEPT;
             }
         });
-        while(walker.nextNode()) nodes.push(walker.currentNode);
+        while (walker.nextNode()) nodes.push(walker.currentNode);
         return nodes;
     }
 
@@ -87,7 +125,9 @@
     // --- Toggle display ---
     function toggleDisplay() {
         document.querySelectorAll(`.${POKEKING_TRANSLATED_CLASS}`).forEach(span => {
-            span.textContent = isShowingOriginal ? span.dataset[POKEKING_ORIGINAL_DATA_ATTR] : span.dataset[POKEKING_TRANSLATED_DATA_ATTR];
+            span.textContent = isShowingOriginal
+                ? span.dataset[POKEKING_ORIGINAL_DATA_ATTR]
+                : span.dataset[POKEKING_TRANSLATED_DATA_ATTR];
         });
     }
 
@@ -104,7 +144,7 @@
             const btn = document.createElement('button');
             btn.className = CUSTOM_ALERT_BUTTON_CLASS;
             btn.textContent = "OK";
-            btn.onclick = () => alertDiv.style.display='none';
+            btn.onclick = () => alertDiv.style.display = 'none';
             alertDiv.appendChild(btn);
             document.body.appendChild(alertDiv);
         }
@@ -112,30 +152,93 @@
         alertDiv.style.display = 'flex';
     }
 
-    // --- Add buttons ---
+    // --- Add buttons with draggable, persistent positions ---
     function addButtons() {
         let container = document.getElementById(POKEKING_BUTTONS_CONTAINER_ID);
         if (!container) {
             container = document.createElement('div');
             container.id = POKEKING_BUTTONS_CONTAINER_ID;
-            container.style = 'position:fixed;top:50%;left:5px;display:flex;flex-direction:column;gap:5px;z-index:9999;';
+            container.style.position = 'fixed';
+            container.style.top = '50%';
+            container.style.left = '5px';
+            container.style.display = 'flex';
+            container.style.flexDirection = 'column';
+            container.style.gap = '5px';
+            container.style.zIndex = '9999';
             document.body.appendChild(container);
         }
 
-        const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = "CN";
-        toggleBtn.className = POKEKING_BUTTON_CLASS;
-        toggleBtn.onclick = () => {
-            isShowingOriginal = !isShowingOriginal;
-            toggleDisplay();
-            toggleBtn.textContent = isShowingOriginal ? "ENG" : "CN";
-        };
-        container.appendChild(toggleBtn);
+        // --- Toggle Button ---
+        let toggleBtn = document.getElementById('pokeking-toggle-btn');
+        if (!toggleBtn) {
+            toggleBtn = document.createElement('button');
+            toggleBtn.id = 'pokeking-toggle-btn';
+            toggleBtn.textContent = "CN";
+            toggleBtn.className = POKEKING_BUTTON_CLASS;
+            toggleBtn.style.position = 'fixed';
+            toggleBtn.style.top = localStorage.getItem(toggleBtn.id + '-top') || '10px';
+            toggleBtn.style.left = localStorage.getItem(toggleBtn.id + '-left') || '10px';
+            toggleBtn.style.zIndex = '10000';
+            toggleBtn.onclick = () => {
+                isShowingOriginal = !isShowingOriginal;
+                toggleDisplay();
+                toggleBtn.textContent = isShowingOriginal ? "ENG" : "CN";
+            };
+            document.body.appendChild(toggleBtn);
+            makeButtonDraggable(toggleBtn);
+        }
 
+        // --- Alert Button ---
         const alertBtn = document.createElement('button');
         alertBtn.textContent = "Alert Test";
+        alertBtn.id = 'pokeking-alert-btn';
+        alertBtn.style.position = 'fixed';
+        alertBtn.style.top = localStorage.getItem(alertBtn.id + '-top') || '100px';
+        alertBtn.style.left = localStorage.getItem(alertBtn.id + '-left') || '10px';
+        alertBtn.style.zIndex = '10000';
         alertBtn.onclick = () => showAlert("Pokeking Translator Active!");
-        container.appendChild(alertBtn);
+        document.body.appendChild(alertBtn);
+        makeButtonDraggable(alertBtn);
+    }
+
+    // --- Make button draggable (touch) ---
+    function makeButtonDraggable(btn) {
+        let offsetX = 0, offsetY = 0;
+        btn.style.transition = 'left 0.3s ease, top 0.3s ease';
+
+        btn.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            offsetX = touch.clientX - btn.getBoundingClientRect().left;
+            offsetY = touch.clientY - btn.getBoundingClientRect().top;
+            btn.style.transition = '';
+        });
+
+        btn.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            btn.style.left = (touch.clientX - offsetX) + 'px';
+            btn.style.top = (touch.clientY - offsetY) + 'px';
+        });
+
+        btn.addEventListener('touchend', () => {
+            const btnRect = btn.getBoundingClientRect();
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            btn.style.transition = 'left 0.3s ease, top 0.3s ease';
+
+            // Snap horizontally
+            btn.style.left = (btnRect.left + btnRect.width / 2 < screenWidth / 2)
+                ? '10px'
+                : (screenWidth - btnRect.width - 10) + 'px';
+
+            // Constrain vertically
+            if (btnRect.top < 10) btn.style.top = '10px';
+            if (btnRect.bottom > screenHeight - 10) btn.style.top = (screenHeight - btnRect.height - 10) + 'px';
+
+            // Save
+            localStorage.setItem(btn.id + '-top', btn.style.top);
+            localStorage.setItem(btn.id + '-left', btn.style.left);
+        });
     }
 
     // --- MutationObserver ---
@@ -150,11 +253,12 @@
 
     // --- Initialize ---
     async function init() {
+        injectStyle(); // 🔹 Inject the CSS styling
         await fetchDictionary();
         translateNodes(getTextNodes());
         addButtons();
-        observer.observe(document.body, {childList:true,subtree:true});
-        console.log("Pokeking Translator: Initialized (Safari-ready).");
+        observer.observe(document.body, { childList: true, subtree: true });
+        console.log("Pokeking Translator: Initialized (Safari-ready, with CSS).");
     }
 
     if (document.readyState === 'loading') {
